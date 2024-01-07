@@ -18,13 +18,13 @@ the OS by using [flatpak][2]), you have to modify things in you *home* directory
 and break the system.
 
 Taking this into account, the script located in the `scripts` directory of this repository will:
-* Download the official oracle JDK 17 compressed file into your **home** directory, more specifically into `~/.local/jdk`
+* Download the official oracle JDK 21 compressed file into your **home** directory, more specifically into `~/.local/jdk`
 * Exec a checksum of the file using the official sha256 checksum
-* Extract the file into `~/.local/jdk/jdk-17.0.4.1`
+* Extract the file into `~/.local/jdk/jdk-21.0.1`
 * Add some environment variables to your `~/.profile` and then source it, if it wasn't already sourced, in your bashrc,
   so your programs / scripts know where `java` is installed.
     The variables are:
-    * JAVA_HOME: which points to the `~/.local/jdk/jdk-17.0.4.1`
+    * JAVA_HOME: which points to the `~/.local/jdk/jdk-21.0.1`
     * PATH: which adds the `bin` directory located in the JAVA_HOME, so every executable is available for you to run
 
 By adding the variables to `.profile` instead of `.bashrc` we ensure to be more "shell agnostic", so if you run
@@ -38,13 +38,13 @@ To learn about this:
 With this, you will have a *local* installation of java and even better, you can install multiple versions and then point
 to the one you need.
 
-This script only works (currently) for the jdk-17, since in order to download jdk-11 from oracle's page requires a login.
+This script only works (currently) for the jdk-21, since in order to download jdk-11 from oracle's page requires a login.
 
 Usage
 =====
 ```bash
-git clone https://github.com/BlackCorsair/install-jdk-on-steam-deck.git
-./install-jdk-on-steam-deck/scripts/install-jdk.sh
+git clone https://github.com/tzmanish/install-jdk21-on-steam-deck.git
+./install-jdk21-on-steam-deck/scripts/install-jdk.sh
 ```
 
 How to uninstall it
@@ -56,7 +56,7 @@ rm -rf /home/deck/.local/jdk
 
 # remove the ~/.profile file this script creates OR remove the lines using an editor:
 # export JAVA_HOME=/home/deck/.local/jdk
-# export PATH=$PATH:/home/deck/.local/jdk/jdk-17.0.8/bin
+# export PATH=$PATH:/home/deck/.local/jdk/jdk-21.0.8/bin
 rm -f ~/.profile
 
 # Optionally, you can remove the line added to your bashrc
